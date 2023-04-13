@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+
+	<style>
+
+	</style>
+
+	<form method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+
+		{% if app.user %}
+			<div class="mb-3">
+				You are logged in as
+				{{ app.user.userIdentifier }},
+				<a href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
+
+		
+
+		<div class="container py-5 h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <img src="data:image/jpeg;base64,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">
+                </div>
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+					<div class="card bg-dark text-white" style="border-radius: 1rem;">
+						<div class="card-body p-5 text-center">
+							<div class="mb-md-5 mt-md-4 pb-5">
+								<h2 class="fw-bold mb-2">Login</h2>
+								<p class="text-white-50 mb-5">Please enter your login and password!</p>
+								<div class="form-outline form-white mb-4">
+									<label class="form-label" for="typeEmail">Email</label>
+									<input name="email" type="email" id="typeEmail" value="{{ last_username }}" class="form-control form-control-lg" autocomplete="email" required autofocus placeholder="Email"/>
+								</div>
+								<div class="form-outline form-white mb-4">
+									<label class="form-label" for="typePassword">Password</label>
+									<input type="password" id="typePassword" name="password" class="form-control form-control-lg" autocomplete="current-password" required placeholder="Password"/>
+								</div>
+								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+								<button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+							</div>
+							<div>
+								<p class="mb-0">Don't have an account?
+									<a href="{{path('app_register')}}" class="text-white-50 fw-bold">Sign Up</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+{% endblock %}

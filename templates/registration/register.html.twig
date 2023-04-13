@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<form method="post">
+		<section class="vh-100 gradient-custom">
+			<div class="container py-5 h-100">
+				<div class="row d-flex justify-content-right align-items-right h-100">
+					<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+						<div class="card bg-dark text-white" style="border-radius: 1rem;">
+							<div class="card-body p-5 text-center">
+
+								<div class="mb-md-5 mt-md-4 pb-5">
+
+									<h2 class="fw-bold mb-2 ">Register</h2>
+									<p class="text-white-50 mb-5">Please enter your data!</p>
+
+									{{ form_start(registrationForm) }}
+
+									<div class="form-outline form-white mb-4">
+										{{ form_widget(registrationForm.nombre, {'attr': {'class': 'form-control mb-2','placeholder': 'Nombres'}}) }}
+									</div>
+
+									<div class="form-outline form-white mb-4">
+										{{ form_widget(registrationForm.apellido, {'attr': {'class': 'form-control mb-2','placeholder': 'Apellidos'}}) }}
+									</div>
+
+									<div class="form-outline form-white mb-4">
+										{{ form_widget(registrationForm.email, {'attr': {'class': 'form-control mb-2','placeholder': 'Email'}}) }}
+									</div>
+
+									<div class="form-outline form-white mb-4">
+										{{ form_widget(registrationForm.clave, {'attr': {'class': 'form-control mb-2','placeholder': 'Password'}}) }}
+									</div>
+
+									<div class="form-outline form-white mb-4">
+										<label class="form-label">Roles</label>
+										{{ form_widget(registrationForm.roles, {'attr': {'class': 'form-control mb-2'}}) }}
+									</div>
+                                    <br>
+                                    <br>
+									<div class="form-check form-white mb-4">
+										{{ form_widget(registrationForm.agreeTerms) }}
+                                        <label class="form-label">Acepta los terminos
+										</label>
+									</div>
+
+									<button class="btn btn-outline-light btn-lg px-5" type="submit">Sign up</button>
+									<br>
+									<br>
+
+									<div>
+										<p class="mb-0">Do you have an account?
+											<a href="{{path('app_login')}}" class="text-white-50 fw-bold">Sign in</a>
+										</p>
+									</div>
+									{{ form_end(registrationForm) }}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-5 d-none d-md-block">
+						<img src="https://cdn-icons-png.flaticon.com/512/3456/3456426.png" alt="login form" class="img-fluid align-items-center" style="border-radius: 1rem 0 0 1rem;"/>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+		<script src="https://kit.fontawesome.com/646c794df3.js"></script>
+	</form>
+{% endblock %}

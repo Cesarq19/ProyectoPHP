@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+		<link
+		rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+
+		<header class="p-3 bg-dark text-white">
+			<div class="container">
+				<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start px-2">
+					<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none px-2">
+						<svg class="bi mx-2" width="40" height="32" role="img" aria-label="Inicio">
+							<i class="bi bi-ui-checks-grid"></i>
+						</svg>
+					</a>
+
+					{% if is_granted('ROLE_ADMIN') %}
+
+						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li>
+								<a href="#" class="nav-link px-2 text-secundary active">Home</a>
+							</li>
+							<li>
+								<a href="{{path('app_register')}}" class="nav-link px-2 text-white active">Features</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">Pricing</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">FAQs</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">About</a>
+							</li>
+						</ul>
+
+						<div class="text-end">
+							<a class="btn btn-warning" href="{{path('app_logout')}}">Log out</a>
+						</div>
+
+					{% elseif is_granted('ROLE_2') %}
+
+						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li>
+								<a href="#" class="nav-link px-2 text-secundary active">Home</a>
+							</li>
+							<li>
+								<a href="{{path('app_register')}}" class="nav-link px-2 text-white active">Features</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">Pricing</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">FAQs</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">About</a>
+							</li>
+						</ul>
+
+						<div class="text-end">
+							<a class="btn btn-warning" href="{{path('app_logout')}}">Log out</a>
+						</div>
+
+					{% elseif is_granted('ROLE_3') %}
+
+						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li>
+								<a href="#" class="nav-link px-2 text-secundary active">Home</a>
+							</li>
+							<li>
+								<a href="{{path('app_register')}}" class="nav-link px-2 text-white active">Features</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">Pricing</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">FAQs</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">About</a>
+							</li>
+						</ul>
+
+						<div class="text-end">
+							<a class="btn btn-warning" href="{{path('app_logout')}}">Log out</a>
+						</div>
+
+					{% elseif is_granted('ROLE_4') %}
+
+						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li>
+								<a href="#" class="nav-link px-2 text-secundary active">Home</a>
+							</li>
+							<li>
+								<a href="{{path('app_register')}}" class="nav-link px-2 text-white active">Features</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">Pricing</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">FAQs</a>
+							</li>
+							<li>
+								<a href="#" class="nav-link px-2 text-white">About</a>
+							</li>
+						</ul>
+
+						<div class="text-end">
+							<a class="btn btn-warning" href="{{path('app_logout')}}">Log out</a>
+						</div>
+
+					{% else %}
+
+						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li>
+								<a href="{{path('app_home')}}" class="nav-link px-2 text-secundary disabled">App Name</a>
+							</li>
+						</ul>
+
+						<div class="text-end">
+							<a class="btn btn-outline-light me-2" href="{{path('app_login')}}">Login</a>
+							<a class="btn btn-warning" href="{{path('app_register')}}">Sign-up</a>
+						</div>
+
+					{% endif %}
+
+				</div>
+			</div>
+		</header>
+
+		{% block body %}{% endblock %}
+
+
+	</body>
+</html>

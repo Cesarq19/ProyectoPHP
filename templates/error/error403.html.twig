@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error 403 - Acceso denegado{% endblock %}
+
+{% block body %}
+
+        <style>
+        body {
+            background-image: url(https://www.que.es/wp-content/uploads/2021/04/3-1.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff0000;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004d99;
+        }
+    </style>
+
+    <div class="error-container">
+        <h1>Error 403 - Acceso denegado</h1>
+        <p>Lo sentimos, pero no tienes permiso para acceder a esta página.</p>
+        <button onclick="window.history.back()">Regresar</button>
+    </div>
+{% endblock %}
