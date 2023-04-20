@@ -54,11 +54,11 @@
 							<a class="btn btn-warning" href="{{path('app_logout')}}">Log out</a>
 						</div>
 
-					{% elseif is_granted('ROLE_2') %}
+					{% elseif is_granted('ROLE_PERSONAL') %}
 
 						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 							<li>
-								<a href="#" class="nav-link px-2 text-secundary active">Home</a>
+								<a href="{{path('app_personal_main')}}" class="nav-link px-2 text-secundary active">Home</a>
 							</li>
 							<li>
 								<a href="{{path('app_register')}}" class="nav-link px-2 text-white active">Features</a>
@@ -130,7 +130,7 @@
 
 						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 							<li>
-								<a href="{{path('app_home')}}" class="nav-link px-2 text-secundary disabled">App Name</a>
+								<a href="{{path('app_home')}}" class="nav-link px-2 text-secundary disabled">Penitenciaria</a>
 							</li>
 						</ul>
 

@@ -29,7 +29,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
      */
     private $nombre;
 
@@ -43,7 +43,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido", type="string", length=50, nullable=false)
+     * @ORM\Column(name="apellido", type="string", length=255, nullable=false)
      */
     private $apellido;
 
@@ -71,14 +71,13 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string|null
      *
-     * @ORM\Column(name="tipo", type="string", length=100, nullable=true)
+     * @ORM\Column(name="tipo", type="string", length=255, nullable=true)
      */
     private $tipo;
 
-    const ROLE_1 = 'ROLE_1';
-    const ROLE_2 = 'ROLE_2';
-    const ROLE_3 = 'ROLE_3';
-    const ROLE_4 = 'ROLE_4';
+    const ROLE_PERSONAL = 'ROLE_PERSONAL';
+    const ROLE_ADMIN = 'ROLE_ADMIN';
+    const ROLE_GUARDIA = 'ROLE_GUARDIA';
 
     public function __construct()
     {

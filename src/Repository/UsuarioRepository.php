@@ -62,9 +62,22 @@ class UsuarioRepository extends ServiceEntityRepository implements PasswordUpgra
 
     public function findByRole($role):array
     {
+        // $entityManager = $this->getEntityManager();
+
+        // $query = $entityManager->createQuery(
+        //     'SELECT u
+        //     FROM App\Entity\Usuario u
+        //     WHERE JSON_CONTAINS(u.roles,:rol)
+        //     ORDER BY u.idUsuario ASC'
+        // )->setParameter('rol', $role);
+        // return $query->getResult();
+        // returns an array of Product objects
+        // return $query->getResult();
         return $this->createQueryBuilder('u')
-            ->andWhere('u.roles LIKE :rol')
-            ->setParameter('rol','%'.$role.'%')
+            ->andWhere("CONTAINS(u.roles,:rol)")
+            // ->andWhere('u.roles LIKE :rol')
+            ->setParameter('rol',$role)
+            //->setParameter('rol','%"'.$role.'"%')
             ->getQuery()
             ->getResult();
     }

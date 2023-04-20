@@ -10,9 +10,9 @@ security:
                 class: App\Entity\Usuario
                 property: email
     role_hierarchy:
-        ROLE_1: ROLE_USER
-        ROLE_2: ROLE_USER
-        ROLE_3: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
+        ROLE_GUARDIA: ROLE_USER
+        ROLE_PERSONAL: ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
     firewalls:
         dev:
